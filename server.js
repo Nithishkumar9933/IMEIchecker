@@ -4,7 +4,7 @@ const app=express()
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.json());
-app.use(express.urlencoded());
+// app.use(express.urlencoded());
 app.use(express.urlencoded({ extended: true }));
 
 function sum_of_Digits(n){
@@ -40,6 +40,6 @@ app.post('/',(req,res)=>{
         res.render('fail');
 })
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log('Server is running on port 3000');
 })
